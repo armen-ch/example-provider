@@ -1,8 +1,8 @@
 class Product {
-    constructor(id, type, names, version) {
+    constructor(id, type, name, version) {
         this.id = id;
         this.type = type;
-        this.names = names;
+        this.name = name;
         this.version = version;
     }
 }
