@@ -80,6 +80,7 @@ describe("Pact Verification", () => {
         console.log(output)
       })
       .finally(() => {
+        console.log('process.env.PACT_URL: '+process.env.PACT_URL)
         server.close();
       });
   })
