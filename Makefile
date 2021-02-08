@@ -81,6 +81,7 @@ create_github_token_secret:
 # NOTE: the github token secret must be created (either through the UI or using the
 # `create_travis_token_secret` target) before the webhook is invoked.
 create_or_update_pact_changed_webhook:
+	@echo "MAKING create_or_update_pact_changed_webhook" \
 	"${PACT_CLI}" \
 	  broker create-or-update-webhook \
 	  "https://api.github.com/repos/${GITHUB_REPO}/dispatches" \
@@ -93,6 +94,7 @@ create_or_update_pact_changed_webhook:
 	  --description "Pact content changed for ${PACTICIPANT}"
 
 test_pact_changed_webhook:
+	@echo "MAKING test_pact_changed_webhook" \
 	@curl -v -X POST ${PACT_BROKER_BASE_URL}/webhooks/${PACT_CHANGED_WEBHOOK_UUID}/execute -H "Authorization: Bearer ${PACT_BROKER_TOKEN}"
 
 ## ======================
